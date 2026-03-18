@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RQ4 - Germany Electricity Project</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .chart-frame {
+      width: 100%;
+      height: 720px;
+      border: none;
+      border-radius: 12px;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Electricity Project Germany</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="data.html">Data</a></li>
+
+        <li class="dropdown">
+          <a href="#">Research Questions</a>
+          <ul class="dropdown-menu">
+            <li><a href="rq1.html">RQ1</a></li>
+            <li><a href="rq2.html">RQ2</a></li>
+            <li><a href="rq3.html">RQ3</a></li>
+            <li><a href="rq4.html">RQ4</a></li>
+            <li><a href="rq5.html">RQ5</a></li>
+            <li><a href="rq6.html">RQ6</a></li>
+            <li><a href="rq7.html">RQ7</a></li>
+          </ul>
+        </li>
+
+        <li><a href="imprint.html">Imprint</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>RQ4 — Generation Mix during High Renewable Output</h1>
+      <p>
+        How does Germany’s electricity generation mix change on days with high
+        renewable output, and which conventional sources decrease the most?
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Research Focus</h2>
+      <p>
+        This analysis examines how Germany’s electricity generation mix changes
+        on days with high wind and photovoltaic output and which conventional
+        sources are reduced the most.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Key Results</h2>
+      <p>
+        The data suggests that on days with high renewable output, Germany’s
+        electricity generation mix shifts noticeably toward wind and photovoltaic
+        generation, while conventional sources are reduced.
+      </p>
+      <p>
+        In particular, <strong>lignite</strong> and <strong>hard coal</strong> show the
+        clearest decline, while <strong>gas</strong> also decreases but usually less
+        consistently.
+      </p>
+      <p>
+        On days with a lot of wind and PV generation, the renewable share of the
+        electricity mix increases strongly, the contribution of conventional
+        generation falls, and the mix becomes less dependent on coal and gas.
+      </p>
+      <p>
+        This indicates a clear substitution effect: when renewable generation is
+        high, conventional plants are needed less to cover demand.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Visualization 1 — Generation Mix Dropdown</h2>
+      <p>
+        This chart shows how Germany’s generation mix changes under different renewable output situations.
+      </p>
+      <iframe
+        class="chart-frame"
+        src="Fragendiagramme/Frage4/generation_mix_dropdown.html"
+        title="RQ4 Generation Mix Dropdown">
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2>Visualization 2 — Renewable versus Fossil Generation</h2>
+      <p>
+        This chart compares renewable and fossil electricity generation during periods of different renewable output.
+      </p>
+      <iframe
+        class="chart-frame"
+        src="Fragendiagramme/Frage4/renewable_vs_fossil.html"
+        title="RQ4 Renewable versus Fossil">
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2>Visualization 3 — Generation by Region</h2>
+      <p>
+        This chart provides a regional perspective on generation patterns during high renewable output.
+      </p>
+      <iframe
+        class="chart-frame"
+        src="Fragendiagramme/Frage4/generation_by_region.html"
+        title="RQ4 Generation by Region">
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2>Interpretation</h2>
+      <p>
+        Lignite is one of the largest conventional generation sources in the
+        dataset and therefore shows the most visible downward movement when wind
+        and photovoltaic generation are especially strong.
+      </p>
+      <p>
+        Hard coal also tends to lose a noticeable share of the generation mix in
+        high-renewable periods. Gas usually declines as well, but often less
+        consistently because it also plays a role in system flexibility and balancing.
+      </p>
+      <p>
+        Overall, the results are consistent with the idea that renewable
+        electricity displaces fossil generation. When wind and PV produce a lot
+        of electricity, Germany needs less conventional backup in the mix.
+      </p>
+      <p>
+        <strong>Summary:</strong> On days with high wind and PV generation,
+        Germany’s electricity mix becomes much more renewable, while conventional
+        generation declines. Among the conventional sources, lignite and hard
+        coal are reduced the most, with gas also decreasing but often less strongly.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>University Project · Germany Electricity Analysis</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

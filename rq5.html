@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RQ5 - Germany Electricity Project</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .chart-frame {
+      width: 100%;
+      height: 720px;
+      border: none;
+      border-radius: 12px;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Electricity Project Germany</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="data.html">Data</a></li>
+
+        <li class="dropdown">
+          <a href="#">Research Questions</a>
+          <ul class="dropdown-menu">
+            <li><a href="rq1.html">RQ1</a></li>
+            <li><a href="rq2.html">RQ2</a></li>
+            <li><a href="rq3.html">RQ3</a></li>
+            <li><a href="rq4.html">RQ4</a></li>
+            <li><a href="rq5.html">RQ5</a></li>
+            <li><a href="rq6.html">RQ6</a></li>
+            <li><a href="rq7.html">RQ7</a></li>
+          </ul>
+        </li>
+
+        <li><a href="imprint.html">Imprint</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>RQ5 — Regional Differences in Electricity Consumption</h1>
+      <p>
+        How does electricity consumption differ between Germany’s TSO control
+        areas, and which factors may explain these regional differences?
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Research Focus</h2>
+      <p>
+        This analysis compares electricity consumption across Germany’s four TSO
+        control areas and examines which structural factors may explain the
+        observed regional differences.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Key Results</h2>
+      <p>
+        The SMARD data from 2022 to 2025 shows clear regional differences in
+        electricity consumption across the four TSO control areas. Amprion has
+        the highest average electricity consumption, followed by TenneT, then
+        50Hertz, while TransnetBW has the lowest.
+      </p>
+      <p>
+        The approximate average daily electricity consumption is
+        <strong>459,000 MWh</strong> for Amprion,
+        <strong>387,000 MWh</strong> for TenneT,
+        <strong>279,000 MWh</strong> for 50Hertz, and
+        <strong>158,000 MWh</strong> for TransnetBW.
+      </p>
+      <p>
+        As a share of Germany’s total average daily consumption, this corresponds
+        to approximately <strong>35.8 %</strong> for Amprion,
+        <strong>30.2 %</strong> for TenneT,
+        <strong>21.7 %</strong> for 50Hertz, and
+        <strong>12.3 %</strong> for TransnetBW.
+      </p>
+      <p>
+        This leads to the clear ranking
+        <strong>Amprion &gt; TenneT &gt; 50Hertz &gt; TransnetBW</strong>.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Visualization 1 — Average Regional Consumption</h2>
+      <p>
+        This chart compares the average electricity consumption across Germany’s TSO control areas.
+      </p>
+      <iframe
+        class="chart-frame"
+        src="Fragendiagramme/Frage5/regional_consumption_avg.html"
+        title="RQ5 Average Regional Consumption">
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2>Visualization 2 — Regional Consumption Boxplot</h2>
+      <p>
+        This boxplot shows the distribution of electricity consumption across the different TSO regions.
+      </p>
+      <iframe
+        class="chart-frame"
+        src="Fragendiagramme/Frage5/regional_consumption_boxplot.html"
+        title="RQ5 Regional Consumption Boxplot">
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2>Visualization 3 — Regional Consumption Time Series</h2>
+      <p>
+        This time series shows how electricity consumption develops over time in the different TSO regions.
+      </p>
+      <iframe
+        class="chart-frame"
+        src="Fragendiagramme/Frage5/regional_consumption_timeseries.html"
+        title="RQ5 Regional Consumption Time Series">
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2>Interpretation</h2>
+      <p>
+        These regional differences can plausibly be explained by a combination
+        of structural factors rather than by weather alone.
+      </p>
+      <p>
+        Regions with more industry and energy-intensive economic activity tend
+        to have higher electricity demand. In the dataset, Amprion stands out
+        clearly, which is consistent with a control area that includes major
+        industrial and densely populated regions.
+      </p>
+      <p>
+        Population size and urban concentration are also likely to play an
+        important role. This helps explain why TenneT and Amprion are above
+        50Hertz and TransnetBW.
+      </p>
+      <p>
+        In addition, regional demand structures differ. Some areas are more
+        strongly shaped by industry, others by services, commercial activity or
+        residential demand, which creates different overall consumption levels
+        within the national power system.
+      </p>
+      <p>
+        <strong>Summary:</strong> Electricity consumption differs clearly across
+        Germany’s TSO areas and appears to be driven mainly by regional economic
+        structure, population size and demand composition.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>University Project · Germany Electricity Analysis</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

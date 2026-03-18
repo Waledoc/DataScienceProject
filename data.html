@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data - Germany Electricity Project</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header>
+  <nav class="navbar">
+    <div class="logo">Electricity Project Germany</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="data.html">Data</a></li>
+
+      <li class="dropdown">
+        <a href="#">Research Questions</a>
+        <ul class="dropdown-menu">
+          <li><a href="rq1.html">RQ1</a></li>
+          <li><a href="rq2.html">RQ2</a></li>
+          <li><a href="rq3.html">RQ3</a></li>
+          <li><a href="rq4.html">RQ4</a></li>
+          <li><a href="rq5.html">RQ5</a></li>
+          <li><a href="rq6.html">RQ6</a></li>
+          <li><a href="rq7.html">RQ7</a></li>
+        </ul>
+      </li>
+
+      <li><a href="imprint.html">Imprint</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+    <section id="api-sources" class="hero">
+      <h1>Data and API Sources</h1>
+      <p>
+        This page gives an overview of the three APIs and data sources used in our project.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>SMARD</h2>
+      <p>
+        SMARD provides the electricity market data used in this project. We use
+        SMARD data from 2022 to 2025 for electricity consumption, electricity
+        generation, electricity prices, and regional values for Germany’s TSO control areas.
+      </p>
+      <p>
+        Main use in the project: analysis of national electricity demand,
+        generation mix, regional TSO consumption and generation, and price developments.
+      </p>
+      <p>
+        API / Source link:
+        <a href="https://www.smard.de/" target="_blank" rel="noopener noreferrer">https://www.smard.de/</a>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Open-Meteo</h2>
+      <p>
+        Open-Meteo provides the weather data used in the project. We use daily
+        weather variables such as maximum temperature, minimum temperature,
+        wind speed, and precipitation in order to analyze how weather conditions
+        are related to electricity consumption and renewable generation.
+      </p>
+      <p>
+        Main use in the project: seasonal consumption analysis and the weather-based
+        explanation of wind and photovoltaic generation patterns.
+      </p>
+      <p>
+        API / Source link:
+        <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">https://open-meteo.com/</a>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>OpenHolidays API</h2>
+      <p>
+        The OpenHolidays API provides the holiday information used in this project.
+        We use public holiday data and combine it with school holiday information
+        in order to compare electricity consumption on regular working days,
+        Sundays, and holiday-related periods.
+      </p>
+      <p>
+        Main use in the project: identification of public holidays and holiday periods
+        for the analysis of electricity demand differences in Germany.
+      </p>
+      <p>
+        API / Source link:
+        <a href="https://www.openholidaysapi.org/" target="_blank" rel="noopener noreferrer">https://www.openholidaysapi.org/</a>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>How the Data Was Combined</h2>
+      <p>
+        We merged the electricity data, weather data, and holiday information on
+        a daily level. This makes it possible to compare demand, generation,
+        prices, and external factors such as temperature, wind conditions, and holidays
+        within one combined dataset.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>University Project · Germany Electricity Analysis</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RQ7 - Germany Electricity Project</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .chart-frame {
+      width: 100%;
+      height: 720px;
+      border: none;
+      border-radius: 12px;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Electricity Project Germany</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="data.html">Data</a></li>
+
+        <li class="dropdown">
+          <a href="#">Research Questions</a>
+          <ul class="dropdown-menu">
+            <li><a href="rq1.html">RQ1</a></li>
+            <li><a href="rq2.html">RQ2</a></li>
+            <li><a href="rq3.html">RQ3</a></li>
+            <li><a href="rq4.html">RQ4</a></li>
+            <li><a href="rq5.html">RQ5</a></li>
+            <li><a href="rq6.html">RQ6</a></li>
+            <li><a href="rq7.html">RQ7</a></li>
+          </ul>
+        </li>
+
+        <li><a href="imprint.html">Imprint</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>RQ7 — Renewable Generation and Electricity Prices</h1>
+      <p>
+        How are electricity prices related to renewable electricity generation
+        levels, and do high renewable generation periods correspond to lower
+        electricity prices in Germany?
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Research Focus</h2>
+      <p>
+        This analysis examines whether electricity prices decrease when wind and
+        photovoltaic generation are high.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Visualization 1 — Renewables versus Price Time Series</h2>
+      <p>
+        This chart shows how renewable generation and electricity prices develop over time.
+      </p>
+      <iframe
+        class="chart-frame"
+        src="Fragendiagramme/Frage7/renewables_vs_price_timeseries.html"
+        title="RQ7 Renewables versus Price Time Series">
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2>Visualization 2 — Renewables versus Price Scatter</h2>
+      <p>
+        This scatter plot highlights the relationship between renewable generation levels and electricity prices.
+      </p>
+      <iframe
+        class="chart-frame"
+        src="Fragendiagramme/Frage7/renewables_vs_price_scatter.html"
+        title="RQ7 Renewables versus Price Scatter">
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2>Visualization 3 — Renewable Components and Price Correlation</h2>
+      <p>
+        This chart examines how different renewable components are associated with electricity prices.
+      </p>
+      <iframe
+        class="chart-frame"
+        src="Fragendiagramme/Frage7/renewable_components_price_correlation.html"
+        title="RQ7 Renewable Components and Price Correlation">
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2>Interpretation</h2>
+      <p>
+        The analysis indicates that electricity prices tend to be lower during
+        periods with high renewable generation, especially when wind and
+        photovoltaic output are strong.
+      </p>
+      <p>
+        This pattern is consistent with the idea that a higher supply of
+        renewable electricity can reduce price pressure in the market.
+      </p>
+      <p>
+        <strong>Summary:</strong> Higher renewable generation is generally
+        associated with lower electricity prices in Germany, although the exact
+        relationship can vary depending on the market situation and the specific
+        renewable components involved.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>University Project · Germany Electricity Analysis</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

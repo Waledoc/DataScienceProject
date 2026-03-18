@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RQ6 - Germany Electricity Project</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .chart-frame {
+      width: 100%;
+      height: 720px;
+      border: none;
+      border-radius: 12px;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Electricity Project Germany</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="data.html">Data</a></li>
+
+        <li class="dropdown">
+          <a href="#">Research Questions</a>
+          <ul class="dropdown-menu">
+            <li><a href="rq1.html">RQ1</a></li>
+            <li><a href="rq2.html">RQ2</a></li>
+            <li><a href="rq3.html">RQ3</a></li>
+            <li><a href="rq4.html">RQ4</a></li>
+            <li><a href="rq5.html">RQ5</a></li>
+            <li><a href="rq6.html">RQ6</a></li>
+            <li><a href="rq7.html">RQ7</a></li>
+          </ul>
+        </li>
+
+        <li><a href="imprint.html">Imprint</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>RQ6 — Correlation between Electricity Consumption and Generation in TSO Regions</h1>
+      <p>
+        To what extent is electricity consumption correlated with electricity
+        generation within Germany’s TSO control areas, and are there observable
+        relationships between regional demand and regional electricity production?
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Research Focus</h2>
+      <p>
+        This analysis investigates how strongly electricity consumption and
+        electricity generation are related within Germany’s TSO control areas
+        and whether regional demand and regional production show observable
+        structural relationships.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Key Results</h2>
+      <p>
+        The regional SMARD data from 2022 to 2025 shows a clear positive
+        relationship between electricity consumption and electricity generation
+        in all four TSO regions, although the strength of the relationship
+        differs noticeably by zone.
+      </p>
+      <p>
+        The approximate correlation between daily electricity consumption and
+        daily total electricity generation is <strong>r = 0.79</strong> for
+        50Hertz, <strong>r = 0.69</strong> for Amprion,
+        <strong>r = 0.48</strong> for TransnetBW, and
+        <strong>r = 0.41</strong> for TenneT.
+      </p>
+      <p>
+        This means that all four regions show a positive correlation, but the
+        coupling between regional demand and regional production is clearly
+        stronger in some areas than in others.
+      </p>
+      <p>
+        The data also suggests a structural pattern in which 50Hertz and TenneT
+        appear closer to or above their regional demand levels on average,
+        while Amprion and TransnetBW appear below their average consumption
+        levels.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Visualization 1 — TSO Consumption and Generation Time Series</h2>
+      <p>
+        This chart shows how electricity consumption and generation develop over time across the TSO regions.
+      </p>
+      <iframe
+        class="chart-frame"
+        src="Fragendiagramme/Frage6/tso_consumption_generation_timeseries.html"
+        title="RQ6 TSO Consumption and Generation Time Series">
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2>Visualization 2 — TSO Consumption versus Generation Scatter</h2>
+      <p>
+        This scatter plot highlights the relationship between regional electricity consumption and regional generation.
+      </p>
+      <iframe
+        class="chart-frame"
+        src="Fragendiagramme/Frage6/tso_consumption_vs_generation_scatter.html"
+        title="RQ6 TSO Consumption versus Generation Scatter">
+      </iframe>
+    </section>
+
+    <section class="card">
+      <h2>Interpretation</h2>
+      <p>
+        In every TSO region, higher electricity consumption tends to be
+        associated with higher electricity generation. This indicates a general
+        connection between regional demand and regional production.
+      </p>
+      <p>
+        The relationship is strongest in 50Hertz and Amprion, suggesting that
+        in these areas generation tracks regional demand more closely.
+      </p>
+      <p>
+        In TenneT and TransnetBW, the correlation is weaker. This suggests that
+        regional production is less tightly aligned with regional consumption on
+        a day-to-day basis.
+      </p>
+      <p>
+        Overall, the results point to a broader spatial structure in the German
+        electricity system, where some TSO areas are more generation-heavy and
+        others more demand-heavy.
+      </p>
+      <p>
+        <strong>Summary:</strong> Electricity consumption and electricity
+        generation are positively related in all TSO control areas, but the
+        strength of this relationship varies considerably across regions.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>University Project · Germany Electricity Analysis</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
