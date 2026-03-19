@@ -60,33 +60,38 @@
     </section>
 
     <section class="card">
-      <h2>Key Results</h2>
+    <h2>Key Results</h2>
+    <p>
+      The merged Germany-wide dataset from 2022 to 2025 shows that weather
+      conditions explain renewable electricity generation quite clearly,
+      especially for solar generation and wind onshore generation.
+    </p>
       <p>
-        The merged Germany-wide dataset from 2022 to 2025 shows that weather
-        conditions explain renewable electricity generation quite clearly,
-        especially for wind power and photovoltaic generation.
-      </p>
-      <p>
-        The strongest correlation in the dataset appears between
-        <strong>wind onshore generation and wind speed</strong>, with a correlation of
-        approximately <strong>r = 0.58</strong>.
-      </p>
-      <p>
-        For photovoltaic generation, the strongest relationships appear with
-        temperature. The correlation between <strong>PV generation and maximum temperature</strong>
-        is approximately <strong>r = 0.73</strong>, while the correlation with
-        <strong>minimum temperature</strong> is approximately <strong>r = 0.60</strong>.
-      </p>
-      <p>
-        Overall, this suggests a moderate to strong weather influence for wind
-        generation and a strong weather relationship for PV generation in the dataset.
-      </p>
+      The strongest relationship in the dataset appears between
+      <strong>solar generation and sunshine duration</strong>, with a correlation of
+      approximately <strong>r = 0.92</strong>.
+    </p>
+    <p>
+      For wind onshore generation, the relationship with
+      <strong>wind speed</strong> is also very strong, with a correlation of
+      approximately <strong>r = 0.85</strong>.
+    </p>
+    <p>
+      Overall, this suggests that both solar and wind generation are strongly
+      influenced by weather conditions, with sunshine duration showing the clearest
+      connection for solar output and wind speed showing a strong, but slightly
+      more dispersed, relationship for wind generation.
+    </p>
     </section>
 
     <section class="card">
       <h2>Visualization 1 — Weather and Generation Dashboard</h2>
       <p>
-        This dashboard illustrates how weather conditions and renewable electricity generation are related in Germany.
+        The time-series graphs show how renewable electricity generation and weather conditions develop 
+        over time between 2022 and 2025. For wind, the overall pattern of highs and lows follows wind speed 
+        quite clearly, even though the relationship is not perfectly proportional. For solar, sunshine duration 
+        aligns more closely with generation than temperature, and the graphs also highlight a clear 
+        seasonal cycle: solar dominates in the warmer months, while wind is stronger during autumn and winter.
       </p>
       <iframe
         class="chart-frame"
@@ -98,42 +103,18 @@
     <section class="card">
       <h2>Visualization 2 — Scatter Dashboard</h2>
       <p>
-        This scatter dashboard highlights the statistical relationships between weather indicators and renewable generation.
+        This scatterplot shows the relationship between renewable electricity generation and 
+        the selected weather variable. For solar energy, the points are closely clustered, 
+        indicating a very strong positive relationship between sunshine duration and solar generation. 
+        For wind onshore, the relationship is also clearly positive, but the data is more dispersed, 
+        especially at higher wind speeds, which suggests that wind generation does not increase perfectly 
+        proportionally with stronger wind.
       </p>
       <iframe
         class="chart-frame"
         src="Fragendiagramme/Frage3/scatter_dashboard.html"
         title="RQ3 Scatter Dashboard">
       </iframe>
-    </section>
-
-    <section class="card">
-      <h2>Interpretation</h2>
-      <p>
-        The results indicate that wind power reacts clearly to changing wind
-        conditions, which matches the physical expectations for wind generation.
-      </p>
-      <p>
-        Photovoltaic generation also shows a strong weather relationship.
-        However, the current weather dataset does not include a direct sunshine
-        or solar radiation variable. Instead, temperature acts as an indirect
-        proxy for favorable solar conditions in the aggregated daily data.
-      </p>
-      <p>
-        This means wind generation can be directly linked to wind speed, while
-        PV generation can only be linked indirectly to favorable weather
-        conditions in the current dataset because direct solar irradiation data
-        is not included.
-      </p>
-      <p>
-        Precipitation appears to be much less important than wind speed or
-        temperature in explaining renewable output.
-      </p>
-      <p>
-        <strong>Summary:</strong> Weather conditions explain renewable generation in
-        Germany quite clearly, with wind speed being a key factor for wind power
-        and temperature acting as a proxy for favorable photovoltaic conditions.
-      </p>
     </section>
   </main>
 
