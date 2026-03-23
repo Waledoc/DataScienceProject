@@ -6,7 +6,7 @@ import os
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-
+# Every code section is either partly LLM generated or adjusted through LLMs
 # -----------------------------
 # LOAD ALL SMARD ELECTRICITY DATA
 # -----------------------------
