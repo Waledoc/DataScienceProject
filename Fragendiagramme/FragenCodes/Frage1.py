@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import plotly.express as px
 import plotly.graph_objects as go
-
+# Every code section is either partly LLM generated or adjusted through LLMs
 TZ = "Europe/Berlin"
 
 # --------------------------------------------------
