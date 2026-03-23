@@ -2,14 +2,13 @@ import os
 import requests
 import pandas as pd
 import json
-
-# Function to download daily weather data for a specific location
+# Parts of this code are LLM generated/were created with the help of LLMs
+# Download daily weather data for a specific location
 def get_weather_daily(lat: float, lon: float, start: str, end: str) -> pd.DataFrame:
-    
     # Open-Meteo archive endpoint for historical weather data
     url = "https://archive-api.open-meteo.com/v1/archive"
-    
-    # Parameters sent to the API request
+
+    # Request parameters
     params = {
         "latitude": lat,
         "longitude": lon,
@@ -19,11 +18,11 @@ def get_weather_daily(lat: float, lon: float, start: str, end: str) -> pd.DataFr
         "timezone": "Europe/Berlin"
     }
 
-    # Send request to API. Stop program if request failed
+    # Send the API request and raise an error if it fails
     r = requests.get(url, params=params, timeout=30)
     r.raise_for_status()
-
-    # Convert JSON data into a pandas DataFrame
+    # LLM generated
+    # Convert the JSON response into a DataFrame
     j = r.json()
     df = pd.DataFrame({
         "date": j["daily"]["time"],
@@ -33,19 +32,21 @@ def get_weather_daily(lat: float, lon: float, start: str, end: str) -> pd.DataFr
         "wind_max_kmh": j["daily"]["windspeed_10m_max"],
         "sunshine_duration_s": j["daily"]["sunshine_duration"],
     })
+
+    # Convert the date column to datetime format
     df["date"] = pd.to_datetime(df["date"])
     return df
 
-# Time period we want to download
-start = "2024-01-01"
-end   = "2024-12-31"
 
-# Main output folder
+# Time range for the requested weather data
+start = "2024-01-01"
+end = "2024-12-31"
+
+# Output directory for the exported JSON file
 OUTDIR = "output_weather_openmeteo_2024"
-# Create folder if it doesn't exist
 os.makedirs(OUTDIR, exist_ok=True)
 
-# Major Cities grouped by German power grid regions
+# Major cities grouped by German transmission system operator regions
 regions = {
     "50Hertz": [
         ("Berlin", 52.5200, 13.4050),
@@ -77,10 +78,10 @@ regions = {
     ],
 }
 
-# Option to also calculate a Germany-wide average
+# Option to calculate an overall Germany-wide average
 include_DE_overall = True
 
-# Dictionary to store all data
+# Main output structure for metadata, city-level data, and regional averages
 all_data = {
     "metadata": {
         "start_date": start,
@@ -98,54 +99,56 @@ all_data = {
     "regions": {},
 }
 
-# Loop through all regions
+# Collect all city data for optional Germany-wide aggregation
 all_city_dfs_for_DE = []
-
-# Loop through all regions
+# partly LLM generated
+# Process each region and its cities
 for region, cities in regions.items():
     print(f"\n{region}")
     city_dfs = []
     all_data["cities"][region] = {}
 
-    # Loop through all cities inside the region
+    # Download weather data for each city in the current region
     for city, lat, lon in cities:
         print(f"Load {city} ...")
 
-        # Download weather data
         df_city = get_weather_daily(lat, lon, start, end)
 
-        # Add region and city columns
+        # Add identifying columns for region and city
         df_city["region"] = region
         df_city["city"] = city
         city_dfs.append(df_city)
 
-        # Convert to JSON-serializable format
+        # Store city-level records in JSON-compatible format
         city_data = df_city.to_dict(orient="records")
         all_data["cities"][region][city] = city_data
 
-    # Calculate daily average across the cities in this region
+    # Combine all city data for the region
     df_region = pd.concat(city_dfs, ignore_index=True)
+
+    # Calculate daily averages across all cities in the region
     df_region_avg = df_region.groupby("date", as_index=False).mean(numeric_only=True)
     df_region_avg["region"] = region
 
-    # Convert to JSON-serializable format
+    # Store regional average data in JSON-compatible format
     region_avg_data = df_region_avg.to_dict(orient="records")
     all_data["regions"][region] = region_avg_data
 
+    # Keep regional city data for optional Germany-wide aggregation
     if include_DE_overall:
         all_city_dfs_for_DE.append(df_region)
 
-# Calculate overall Germany average (all cities combined)
+# Calculate Germany-wide daily averages across all cities
 if include_DE_overall and all_city_dfs_for_DE:
     df_all = pd.concat(all_city_dfs_for_DE, ignore_index=True)
     df_DE_avg = df_all.groupby("date", as_index=False).mean(numeric_only=True)
     df_DE_avg["region"] = "DE"
 
-    # Convert to JSON-serializable format
+    # Store Germany-wide average data
     de_avg_data = df_DE_avg.to_dict(orient="records")
     all_data["regions"]["DE"] = de_avg_data
 
-# Save all data to a single JSON file
+# Save the full dataset to a JSON file
 json_path = os.path.join(OUTDIR, "weather_data_2024.json")
 with open(json_path, "w", encoding="utf-8") as f:
     json.dump(all_data, f, indent=2, ensure_ascii=False, default=str)
