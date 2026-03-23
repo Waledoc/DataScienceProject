@@ -4,14 +4,15 @@ import pandas as pd
 import json
 import time
 
+# Output directory for exported holiday data
 OUTDIR = "output_openholidays_2024"
 os.makedirs(OUTDIR, exist_ok=True)
 
-# API-Site
+# API endpoint and request headers
 URL = "https://openholidaysapi.org/SchoolHolidays"
 HEADERS = {"accept": "application/json"}
 
-# Filter for States
+# German federal states (subdivision codes)
 GER_STATES = [
     "DE-BW",  # Baden-Württemberg
     "DE-BY",  # Bavaria
@@ -31,13 +32,14 @@ GER_STATES = [
     "DE-TH"   # Thuringia
 ]
 
-# Filter for Date
+# Date range for the holiday request
 VALID_FROM = "2024-01-01"
-VALID_TO   = "2024-12-31"
+VALID_TO = "2024-12-31"
 
+# Collect all holiday periods returned by the API
 all_rows = []
 
-# Generating dictionary with Params for request
+# Request school holidays for each German state
 for state in GER_STATES:
     params = {
         "countryIsoCode": "DE",
@@ -48,16 +50,20 @@ for state in GER_STATES:
     }
 
     print(f"Fetching {state}...", end=" ")
-    
+    #LLM generated
     try:
+        # Send request and raise an error for unsuccessful responses
         response = requests.get(URL, params=params, headers=HEADERS)
         response.raise_for_status()
-        data = response.json()  # Getting JSON
 
+        # Parse JSON response
+        data = response.json()
+
+        # Extract relevant fields from each holiday entry
         for h in data:
             holiday_name = None
 
-            # Checking if name exist, so therefore a guaranteed way to contain all fields
+            # Use the first available holiday name if present
             if h.get("name"):
                 holiday_name = h["name"][0]["text"]
 
@@ -67,36 +73,44 @@ for state in GER_STATES:
                 "endDate": h.get("endDate"),
                 "holiday_name": holiday_name
             })
-        
+
         print(f"✓ ({len(data)} holidays)")
-        time.sleep(0.3)  # Small delay to avoid rate limiting
-        
+
+        # Small delay to reduce the chance of rate limiting
+        time.sleep(0.3)
+
     except requests.exceptions.HTTPError as e:
         print(f"✗ Error: {e}")
         continue
 
+# Stop execution if no holiday data was fetched
 if not all_rows:
     print("\n✗ No data fetched.")
     exit()
 
-df = pd.DataFrame(all_rows).drop_duplicates()  # list from dictionary and delete all duplicates
+# Create a DataFrame from the collected holiday periods and remove duplicates
+df = pd.DataFrame(all_rows).drop_duplicates()
 
-df["startDate"] = pd.to_datetime(df["startDate"])  # need for pd.date_range()
+# Convert date columns to datetime format for range expansion
+df["startDate"] = pd.to_datetime(df["startDate"])
 df["endDate"] = pd.to_datetime(df["endDate"])
 
+# Expand each holiday period into individual daily records
 daily_rows = []
 
 for i, row in df.iterrows():
-    for day in pd.date_range(row["startDate"], row["endDate"], freq="D"):  # generating every day from start to end
-        daily_rows.append({  # saves every day as a dataset
-            "date": day.date().isoformat(),  # Convert to ISO format string for JSON
+    for day in pd.date_range(row["startDate"], row["endDate"], freq="D"):
+        daily_rows.append({
+            # Store each holiday day as an ISO date string
+            "date": day.date().isoformat(),
             "state": row["state"],
             "holiday_name": row["holiday_name"]
         })
 
-df_daily = pd.DataFrame(daily_rows).drop_duplicates()  # new table from new dataset
+# Create the final daily-level holiday table and remove duplicates
+df_daily = pd.DataFrame(daily_rows).drop_duplicates()
 
-# Prepare data for JSON output
+# Build the JSON output structure with metadata and records
 json_data = {
     "metadata": {
         "country": "DE",
@@ -110,12 +124,13 @@ json_data = {
     "holidays": df_daily.to_dict(orient="records")
 }
 
-# Save to JSON
+# Save the result as a formatted JSON file
 filepath = os.path.join(OUTDIR, "school_holidays_DE_2024_daily.json")
 
 with open(filepath, "w", encoding="utf-8") as f:
     json.dump(json_data, f, indent=2, ensure_ascii=False)
 
+# Print summary information after export
 print(f"\n✓ Saved: {filepath}")
-print(f"  Total holiday days: {len(df_daily)}")
-print(f"  States covered: {len(GER_STATES)}")
+print(f" Total holiday days: {len(df_daily)}")
+print(f" States covered: {len(GER_STATES)}")
