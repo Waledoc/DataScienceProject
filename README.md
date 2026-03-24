@@ -155,8 +155,8 @@ This makes GitHub Pages a practical solution for projects that are based on stat
 
 Replace these placeholders with your final links:
 
-- **Live website:** `https://your-project-link`
-- **Repository:** `https://your-repository-link`
+- **Live website:** `https://waledoc.github.io/DataScienceProject/index.html`
+- **Repository:** `https://github.com/Waledoc/DataScienceProject`
 
 ## How to Use the Web Application
 
