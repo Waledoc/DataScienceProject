@@ -1,10 +1,18 @@
+<!--AI was only used to improve the wording and make the content easier to understand in English. 
+The original ideas and analysis were created by us; AI was only used for language refinement and translation from German into clearer English.
+The following Commentation, also includes for RQ2, RQ3, RQ4, RQ5, RQ6, RQ6, RQ7.
+The structure of the RQ-Code stays the same, only different sources are being used for graph presentation-->
+
+<!-- Defines an HTML5 document and sets the page language to English -->
 <!DOCTYPE html>
 <html lang="en">
+<!-- Contains metadata, the page title, and the link to the external stylesheet -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RQ1 - Germany Electricity Project</title>
   <link rel="stylesheet" href="css/style.css" />
+  <!-- Styles the embedded chart frames with full width, fixed height, and rounded corners -->
   <style>
     .chart-frame {
       width: 100%;
@@ -16,6 +24,7 @@
   </style>
 </head>
 <body>
+  <!-- Navigation bar with links to the homepage, data section, imprint, and all research questions -->
   <header>
     <nav class="navbar">
       <div class="logo">Electricity Project Germany</div>
@@ -40,6 +49,7 @@
   </header>
 
   <main class="container">
+    <!-- Introductory section presenting the title and research question -->
     <section class="hero">
       <h1>RQ1 — Public Holidays & Electricity Consumption</h1>
       <p>
@@ -58,28 +68,29 @@
     </section>
 
     <section class="card">
-  <h2>Key Results</h2>
-  <p>
-    Across all three visualizations, the results show clear differences in
-    electricity consumption between regular weekdays, Saturdays, Sundays,
-    and holiday days.
-  </p>
-  <p>
-    The bar chart shows that regular weekdays had the highest average
-    electricity consumption at approximately <strong>1.37 million MWh</strong>,
-    while Sundays had the lowest average consumption at around
-    <strong>1.11 million MWh</strong>. Saturdays averaged about
-    <strong>1.17 million MWh</strong>, and holiday days were slightly higher at
-    approximately <strong>1.21 million MWh</strong>.
-  </p>
-  <p>
-    The boxplot confirms the same overall pattern in the distribution of the
-    data, and the time series shows repeated drops during holiday periods
-    while broader weekly and seasonal patterns remain visible. Overall, this
-    indicates that electricity consumption was highest on regular working
-    days and lower on weekends and holiday days.
-  </p>
-</section>
+      <!-- Summarizes the most important findings across all three visualizations -->
+      <h2>Key Results</h2>
+        <p>
+          Across all three visualizations, the results show clear differences in
+          electricity consumption between regular weekdays, Saturdays, Sundays,
+          and holiday days.
+        </p>
+        <p>
+          The bar chart shows that regular weekdays had the highest average
+          electricity consumption at approximately <strong>1.37 million MWh</strong>,
+          while Sundays had the lowest average consumption at around
+          <strong>1.11 million MWh</strong>. Saturdays averaged about
+          <strong>1.17 million MWh</strong>, and holiday days were slightly higher at
+          approximately <strong>1.21 million MWh</strong>.
+        </p>
+        <p>
+          The boxplot confirms the same overall pattern in the distribution of the
+          data, and the time series shows repeated drops during holiday periods
+          while broader weekly and seasonal patterns remain visible. Overall, this
+          indicates that electricity consumption was highest on regular working
+          days and lower on weekends and holiday days.
+        </p>
+    </section>
 
     <section class="card">
       <h2>Visualization 1 — Average Consumption by Day Type</h2>
@@ -91,6 +102,8 @@
         record the highest average values, Sundays the lowest, and Saturdays
         and holidays fall between these two points.
       </p>
+      <!-- Embeds the bar chart or other type (depends wich chart is looked at), this comment is also 
+      for all the different iframe-->
       <iframe
         class="chart-frame"
         src="Fragendiagramme/Frage1/electricity_avg_daytype.html"
@@ -135,27 +148,27 @@
     </section>
 
     <section class="card">
-  <h2>Interpretation</h2>
-  <p>
-    Electricity consumption in Germany was noticeably lower on weekends and
-    holiday days than on regular working days.
-  </p>
-  <p>
-    A likely explanation is reduced industrial activity, lower commercial
-    electricity demand, and changes in everyday routines during these periods.
-  </p>
-  <p>
-    The particularly low consumption on Sundays suggests that reduced
-    business activity has a strong influence on overall electricity demand.
-  </p>
-  <p>
-    <strong>Summary:</strong> Electricity consumption in Germany was highest on
-    regular working days and lower on weekends and holiday days, mainly due
-    to reduced industrial and commercial activity.
-  </p>
-</section>
+      <h2>Interpretation</h2>
+      <p>
+        Electricity consumption in Germany was noticeably lower on weekends and
+        holiday days than on regular working days.
+      </p>
+      <p>
+        A likely explanation is reduced industrial activity, lower commercial
+        electricity demand, and changes in everyday routines during these periods.
+      </p>
+      <p>
+        The particularly low consumption on Sundays suggests that reduced
+        business activity has a strong influence on overall electricity demand.
+      </p>
+      <p>
+        <strong>Summary:</strong> Electricity consumption in Germany was highest on
+        regular working days and lower on weekends and holiday days, mainly due
+        to reduced industrial and commercial activity.
+      </p>
+    </section>
   </main>
-
+  <!-- Footer with project information -->
   <footer>
     <p>University Project · Germany Electricity Analysis</p>
   </footer>
